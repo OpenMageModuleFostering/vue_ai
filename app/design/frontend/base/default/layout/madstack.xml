@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Apptha
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the EULA
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://www.apptha.com/LICENSE.txt
+*
+* ==============================================================
+*                 MAGENTO EDITION USAGE NOTICE
+* ==============================================================
+* This package designed for Magento COMMUNITY edition
+* Apptha does not guarantee correct work of this extension
+* on any other Magento edition except Magento COMMUNITY edition.
+* Apptha does not provide extension support in case of
+* incorrect edition usage.
+* ==============================================================
+*
+* @category    Apptha
+* @package     Apptha_Madstack
+* @version     0.1.0
+* @author      Apptha Team <developers@contus.in>
+* @copyright   Copyright (c) 2015 Apptha. (http://www.apptha.com)
+* @license     http://www.apptha.com/LICENSE.txt
+* 
+*/
+
+-->
+<layout version="1.0">
+	<catalog_product_view>
+		<reference name="head">
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/madstack/carouselslider/carousel.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/madstack/madstack.js</name>
+			</action>
+			<action method="addItem">
+                <type>skin_css</type><name>css/madstack/madstack.css</name>
+            </action>
+			<action method="addItem">
+			    <type>skin_css</type>
+			    <name>css/madstack/ie8.css</name>
+			    <params/><if>lt IE 9</if>
+			</action>
+		</reference>
+		<reference name="product.info.additional">
+			<block type="madstack/madstack" name="madstack_madstack"
+				after="">
+				<action method="setTemplate">
+					<template>madstack/product/slider.phtml</template>
+				</action>
+			</block>
+		</reference>
+    </catalog_product_view>
+    <checkout_cart_index>
+        <reference name="before_body_end">
+            <block type="madstack/madstack" name="madstack_checkout_cart_index" template="madstack/event/cart.phtml" />
+        </reference>
+    </checkout_cart_index>
+    <checkout_onepage_success>
+        <reference name="before_body_end">
+            <block type="madstack/madstack" name="madstack_checkout_onepage_index" template="madstack/event/success.phtml" />
+        </reference>
+    </checkout_onepage_success>
+    <wishlist_index_index>
+    	<reference name="head">
+    		<action method="addItem">
+				<type>skin_js</type>
+				<name>js/madstack/madstack.js</name>
+			</action>
+		</reference>
+        <reference name="before_body_end">
+            <block type="madstack/madstack" name="madstack_wishlist_index" template="madstack/event/wishlist.phtml" />
+        </reference>
+   </wishlist_index_index>
+   <checkout_onepage_index>
+       <reference name="before_body_end">
+           <block type="madstack/madstack" name="madstack_checkout_onepage_index" template="madstack/event/checkout.phtml" />
+       </reference>
+   </checkout_onepage_index>
+</layout> 

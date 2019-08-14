@@ -1,0 +1,234 @@
+<?php
+/**
+* Apptha
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the EULA
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://www.apptha.com/LICENSE.txt
+*
+* ==============================================================
+*                 MAGENTO EDITION USAGE NOTICE
+* ==============================================================
+* This package designed for Magento COMMUNITY edition
+* Apptha does not guarantee correct work of this extension
+* on any other Magento edition except Magento COMMUNITY edition.
+* Apptha does not provide extension support in case of
+* incorrect edition usage.
+* ==============================================================
+*
+* @category    Apptha
+* @package     Apptha_Madstack
+* @version     0.1.0
+* @author      Apptha Team <developers@contus.in>
+* @copyright   Copyright (c) 2015 Apptha. (http://www.apptha.com)
+* @license     http://www.apptha.com/LICENSE.txt
+* 
+*/
+?>
+<?php
+
+/*
+ * Get current product id
+*/
+$currentPID    		= Mage::registry('current_product')->getId();
+$currentCategory 	= $this->helper('madstack')->getCategoryName($currentPID);
+
+$storeStatuscollection = $this->storeStatusCollection(Mage::app()->getStore()->getStoreId());
+
+$carouselEnable	= $storeStatuscollection->getCarousalEnable();
+$packageLicence	= $storeStatuscollection->getLicenseValid();
+
+/*
+ * Check module status enable/disable
+ */
+if(Mage::getStoreConfig('madstack/madstack/activate') && $carouselEnable == 1 && $packageLicence == 1 ){
+	
+	$products = $this->sliderProducts ($data);
+	$coreHelper = $this->helper ( 'core' );
+	$class = '';
+	$carouselWidth			= '320px';
+	$carouselProductCount	= count ( $products ); 
+	if ($carouselProductCount > 0) {
+	$baseURL	= Mage::getBaseURL();
+	?>
+		<h3 class="title-relatedproducts">Related Products</h3>
+		<div class="carousel" id="carousel">
+			<a href="javascript:" style="<?php if($carouselProductCount < 5){ ?>display:none; <?php }?>" onclick="carouselSwipe('<?php echo $currentPID?>','<?php echo $currentCategory?>','<?php echo $baseURL?>');"  class="carousel-control next" rel="next">&rsaquo;</a>
+            <a href="javascript:" style="<?php if($carouselProductCount < 5){ ?>display:none; <?php }?>" onclick="carouselSwipe('<?php echo $currentPID?>','<?php echo $currentCategory?>','<?php echo $baseURL?>');" class="carousel-control prev" rel="prev">&lsaquo;</a>
+	        <div id="middle" class="middle">
+            	<div id="inner" class="inner" style="width: 2000px;">
+				<?php
+                $carouselIncrement  = 0;
+                $countryName		= $this->helper('madstack')->getCountry();
+				$carouselWidth		= $carouselWidth * $carouselProductCount.'px';
+				foreach ( $products as $item ) { ?>
+				<?php
+					$itemId		   = $item->getId();
+					
+					$stock = Mage::getModel('cataloginventory/stock_item')->loadByProduct($itemId);
+					
+					if(round($stock->getQty(),2) > 10 && $carouselIncrement < Mage::getStoreConfig('madstack/madstack/count_result')){
+						
+						$originalPrice		= $item->getPrice();
+						$discountPrice 		= $item->getFinalPrice();
+						$savings 			= $originalPrice - $discountPrice;
+						$savingsPercentage 	= round ( ($savings / $originalPrice) * 100, 0 );
+						$itemCategory		= $this->helper('madstack')->getCategoryName($itemId);  ?>       
+			
+			    		<?php
+						/**
+				 		 * Display product image
+				 		 */
+						?>
+						<div class="prod_detail">
+						<a class="product-image" onclick="carouselClick('<?php echo $currentPID?>','<?php echo $currentCategory?>','<?php echo $itemId?>','<?php echo $itemCategory?>','<?php echo $baseURL?>','<?php echo $carouselIncrement?>')" target="_blank"   href="<?php echo $item->getProductUrl() ?>"><?php $_imgSize = 260; ?><img  src="<?php echo $this->helper('catalog/image')->init($item, 'small_image')->resize($_imgSize); ?>"  /></a>
+						<h3 class="product-name">
+						<a href="<?php echo $item->getProductUrl(); ?>">
+						<?php
+						$prName = $item->getName();
+						$lenPrName = strlen ( $prName );
+						$subPrName = substr ( $prName, 0, 23 );
+						if ($lenPrName >= 26) {
+							$prNameFix = $subPrName . "...";
+						} else {
+							$prNameFix = $prName;
+						}
+						echo $prNameFix; ?>
+			    		</a>
+						</h3>
+						<?php
+						/**
+				 		 * Display of price details
+				 		 */
+						?>
+			    		<div class="product-details">
+			    
+				    		<?php
+							$originalPriceFormat	= $coreHelper->currency($originalPrice, true, false);
+				    		if($originalPrice > $discountPrice){ ?>
+				    
+				    		<span class="original_price"> 
+				    			<?php echo $originalPriceFormat; ?>
+				    		</span> <span class="offer_price"> 
+				    			<?php echo $coreHelper->currency($discountPrice, true, false); ?>
+				    		</span><span class="discount_label">
+				    			<?php echo $this->__('Discount: ') ?> 
+				    		</span> <span class="discount_price"
+								<?php echo $this->getIdSuffix() ?>>
+				        		<?php echo $savingsPercentage, '%';?>
+				        		<?php echo $this->__ ( 'Off' );	?>
+							</span>
+				                                
+				    		<?php }else{ ?>
+				    			<span> <?php echo $originalPriceFormat; ?></span> 
+				    		<?php } ?>
+			    		</div>
+			    		<?php
+						/**
+				 		 * Display Add to cart, add to wishlist and compare
+				 		 */
+						?>  
+						<div class="actions">
+							<ul class="add-to-links">
+								<li><a href="<?php echo $this->helper('wishlist')->getAddUrl($item) ?>"  title="<?php echo $this->__('Add to Wishlist') ?>" class="link-wishlist animated fadeIn <?php echo $class; ?>" onclick="cartOrWishlist('addToWishlistThroughReco','<?php echo $itemId?>','<?php echo $itemCategory?>','<?php echo $countryName?>','<?php echo $discountPrice?>','<?php echo $baseURL?>','<?php echo $carouselIncrement?>');"><?php echo $this->__('Add to Wishlist') ?></a></li>
+								<li><a href="<?php $_compareUrl = Mage::helper ( 'catalog/product_compare' )->getAddUrl ( $item ); echo $_compareUrl?>" title="<?php echo $this->__('Add to Compare') ?>" class="link-compare animated fadeIn"><?php echo $this->__('Add to Compare') ?></a></li>
+								<li>
+									<?php if($item->isSaleable()): ?>
+					        			<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart link-cart" onclick="setLocation('<?php echo Mage::helper('checkout/cart')->getAddUrl($item) ?>'); cartOrWishlist('addToCartThroughReco','<?php echo $itemId?>','<?php echo $itemCategory?>','<?php echo $countryName?>','<?php echo $discountPrice?>','<?php echo $baseURL?>','<?php echo $carouselIncrement?>');">
+											<span><span><?php echo $this->__('Add to Cart') ?></span></span>
+										</button>
+							        <?php else: ?>
+							        	<p class="availability out-of-stock">
+											<span><?php echo $this->__('Out of stock') ?></span>
+										</p>
+							       <?php endif; ?>
+								</li>
+							</ul>
+			           </div>
+						
+			           </div>
+			    		<?php
+						/**
+				 		 * Display of price details
+				 		 */
+						?>
+			            <?php  
+			            $carouselIncrement++;
+			            
+						} 
+				}
+
+				?>
+			</div>
+		</div>
+	</div>	
+	
+	<script type="text/javascript">
+	var fb = document.querySelector(".link-facebook");
+	var twitter = document.querySelector(".link-twitter");
+	var email = document.querySelector(".link-email-friend");
+	var containerWidth = document.getElementById("middle").offsetWidth;
+	var imagewidth	= document.querySelector(".prod_detail").offsetWidth;
+	var estimateSlideCount = (containerWidth)/(imagewidth);
+	var roundSlideCount	=	Math.round(estimateSlideCount);
+	var slideCount	= (estimateSlideCount < roundSlideCount) ? (((roundSlideCount - estimateSlideCount) < '0.25') ? roundSlideCount : roundSlideCount - 1) : (roundSlideCount);
+
+	if(fb){
+		if(fb.addEventListener){
+			fb.addEventListener("click", function(){
+				caltrackevent('<?php echo $currentPID ?>','<?php echo $currentCategory?>','<?php echo Mage::getBaseUrl()?>','facebook');
+			});
+		}else {
+			fb.attachEvent("click", function(){
+				caltrackevent('<?php echo $currentPID ?>','<?php echo $currentCategory?>','<?php echo Mage::getBaseUrl()?>','facebook');
+			});
+		}
+	}
+
+	if(twitter){
+		if(twitter.addEventListener){
+			twitter.addEventListener("click", function(){
+				caltrackevent('<?php echo $currentPID ?>','<?php echo $currentCategory?>','<?php echo Mage::getBaseUrl()?>','twitter');
+			});
+		}else {
+			twitter.attachEvent("click", function(){
+				caltrackevent('<?php echo $currentPID ?>','<?php echo $currentCategory?>','<?php echo Mage::getBaseUrl()?>','twitter');
+			});
+		}
+	}
+
+	if(email){
+		if(email.addEventListener){
+			email.addEventListener("click", function(){
+				caltrackevent('<?php echo $currentPID ?>','<?php echo $currentCategory?>','<?php echo Mage::getBaseUrl()?>','email');
+			});
+		}else {
+			email.attachEvent("click", function(){
+				caltrackevent('<?php echo $currentPID ?>','<?php echo $currentCategory?>','<?php echo Mage::getBaseUrl()?>','email');
+			});
+		}
+	}
+
+	document.getElementById("inner").style.width = '<?php echo $carouselWidth;?>';
+		new Carousel($('carousel').down('.middle'), $('carousel').down('.inner').select('img'), $('carousel').select('a.carousel-control'), {
+                                duration: 0.5,
+                                transition: 'sinoidal',
+                                circular: true,
+                                wheel:false,
+                                visibleSlides:slideCount,
+                                slideProdCount:slideCount
+                            });
+	</script>
+	<?php } 
+}
+
+/*
+ * Track event for view product details(MAD Stack)
+ */
+echo $this->viewProduct();
+
+?>
+

@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    line-height: 14px;
+}
+
+body {
+    background-color: #FFF;
+    font-size: 12px;
+    font-family: Verdana, Arial, Sans;
+}
+
+h1 {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 12px;
+    font-style: italic;
+}
+
+h3 {
+    font-size: 12px;
+}
+
+a {
+    color: #0000a8;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 10px;
+}
+.carousel ul {margin-left:0;}
+
+ul li {
+    display: inline;
+}
+
+#main {
+    width: 600px;
+    padding: 15px 15px 0 15px;
+    margin: 50px auto 0 auto;
+    background-color: #E8F0FF;
+    border: 1px solid #808ea8;
+}
+
+#container {
+    border: 1px solid #808ea8;
+}
+
+img {
+    border: 0;
+}
+
+a img {
+    display: block;
+}
+
+ul.tabs {
+    margin: 20px -15px 0 -15px;
+    border-bottom: 1px solid #808EA8;
+    height: 26px;
+    padding: 0 15px;
+}
+
+ul.tabs li a {
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    border: 1px solid #808ea8;
+    margin-right: 3px;
+    margin-bottom: -1px;
+}
+
+ul.tabs li a.carousel-selected {
+    background-color: #c2d7ff;
+    border-bottom-color: #c2d7ff;
+}
+
+div.tabs {
+  /*   margin: 0 -15px 0 -15px; */
+  /*   background-color: #c2d7ff; */
+/*     height: 310px; */
+    overflow: hidden;
+   /*  border-bottom: 1px solid #808EA8 !important; */
+}
+
+div.middle-tabs {
+    width: 650px;
+    overflow: auto;
+}
+
+div.inner-tabs {
+    width: 1910px; /* 630*n + 20 */
+    height: 330px;
+}
+
+div.tab {
+    float: left;
+    width: 600px;
+    height: 280px;
+    padding: 15px;
+}
+
+div.tab p {
+    padding-bottom: 7px;
+    line-height: 16px;
+}
+
+.carousel {
+    overflow: hidden;
+    padding: 7px;
+}
+
+
+.carousel .middle {
+    overflow: auto;
+}
+
+
+/* Example 1 ---------------------------------- */
+
+#example-1 {
+    background-color: #E8F0FF;
+    border: 1px solid #AAC8FF;
+    width: 598px;
+    height: 223px;
+}
+
+#example-1 .middle {
+    height: 240px;
+}
+
+#example-1 .slide {
+    width: 578px;
+    /*height: 200px;*/
+    padding: 10px;
+    float: left;
+}
+
+#tab-1 .controls {
+    background-color: #AAC8FF;
+    border: 1px solid #AAC8FF;
+    border-top: 0;
+    border-bottom: 0;
+    padding: 7px 9px;
+    margin-top: 5px;
+}
+
+#tab-1 .controls a {
+    font-weight: bold;
+}
+
+.table-example-1 {
+    margin-top: 10px;
+    background-color: #AAC8FF;
+    width: 100%;
+}
+
+.table-example-1 tr th,
+.table-example-1 tr td {
+    padding: 5px;
+}
+
+.table-example-1 tr td {
+    background-color: #FFF;
+}
+
+
+/* Example 2 ---------------------------------- */
+
+#carousel {
+    /* width: 100%; */
+    margin-top: 15px;
+}
+
+#carousel .middle {
+    float: left;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding: 1px;
+    height:380px;
+}
+
+#carousel .inner img {
+    float: left;
+    width: 100%;
+}
+
+#carousel a { float: left; background-color: #AAC8FF; text-align: center; text-decoration: none; font-size: 36px; line-height: 349px; color:#636363;}
+
+#carousel a.next {
+    float: right;
+}
+
+#carousel a:hover {
+    color: #000;
+}
+
+#tab-2 ul li {
+    display: block;
+    padding-bottom: 5px;
+}
+
+
+/* Example 3 ---------------------------------- */
+
+#example-3 {
+    background-color: #E8F0FF;
+    border: 1px solid #AAC8FF;
+    width: 600px;
+    height: 223px;
+}
+
+#example-3 .middle {
+    height: 240px;
+}
+
+#example-3 .slide {
+    width: 578px;
+    height: 200px;
+    padding: 10px;
+    float: left;
+}
+
+#tab-3 .controls {
+    background-color: #AAC8FF;
+    border: 1px solid #AAC8FF;
+    border-top: 0;
+    border-bottom: 0;
+    padding: 7px 9px;
+    margin-top: 5px;
+}
+
+#tab-3 .controls a {
+    font-weight: bold;
+}
+
+.table-example-3 {
+    margin-top: 10px;
+    background-color: #AAC8FF;
+    width: 100%;
+}
+
+.table-example-3 tr th,
+.table-example-3 tr td {
+    padding: 5px;
+}
+
+.table-example-3 tr td {
+    background-color: #FFF;
+}
+/* Produc Details Page */
+.title-relatedproducts{    position: relative;
+    top: 35px;
+    font-size: 24px;}
+/* Carousel Slider CSS */
+#carousel .prod_detail{width: 280px;float:left;  transition: all 300ms ease- out; -webkit-transition: all 300ms ease-out; -moz-transition: all 300ms ease-out; -ms-transition: all 300ms ease-out; -0-transition: all 300ms ease-out;/*  margin: -5px; */padding: 10px; margin: 0 9px;position: relative;}
+#carousel .prod_detail:hover{/*box-shadow: 0 1px 2px rgba(43,59,93,0.29),0 0 13px rgba(43,59,93,0.29);-webkit-box-shadow: 0 1px 2px rgba (43,59,93,0.29),0 0 13px rgba(43,59,93,0.29);-moz-box-shadow: 0 1px 2px rgba(43,59,93,0.29),0 0 13px rgba(43,59,93,0.29);-ms-box-shadow: 0 1px  2px rgba(43,59,93,0.29),0 0 13px rgba(43,59,93,0.29); -o-box-shadow: 0 1px 2px rgba(43,59,93,0.29),0 0 13px rgba(43,59,93,0.29);*/ border-bottom: 1px solid #ddd; box-shadow: 0 2px 0 0 #ddd !important; -moz-box-shadow: 0 2px 0 0 #ddd; -o-box-shadow: 0 2px 0 0 #ddd; -webkit-box-shadow: 0 2px 0 0 #ddd;}
+#carousel .prod_detail:hover .actions{ visibility: visible !important; transition: all 300ms ease; -webkit-transition: all 300ms ease; -moz-transition: all  300ms ease; -ms-transition: all 300ms ease; -o-transition: all 300ms ease; transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-ms- transform:scale(1);-0-transform:scale(1);	}
+#carousel .prod_detail .actions { z-index:1; visibility:hidden; position: absolute; right: 0;left: 0;    text-align: center;    width: 110px;    height: 40px;    top: 0;     bottom: 0;   margin: auto;    transition: all 300ms ease;  -webkit-transition: all 300ms ease; -moz-transition: all 300ms ease; -ms-transition: all 300ms  ease; -o-transition: all 300ms ease; transform:scale(0);-webkit-transform:scale(0);-moz-transform:scale(0);-ms-transform:scale(0);-o-transform:scale (0);}
+.product-view .add-to-links {margin-right:3px !important;}
+#carousel .prod_detail:hover .actions .add-to-links li a.link-compare, #carousel .prod_detail:hover .actions .link-cart, #carousel .prod_detail:hover .actions  .add-to-links li a.link-wishlist{transition: all 300ms ease; -webkit-transition: all 300ms ease; -moz-transition: all 300ms ease; -ms-transition: all 300ms  ease; -o-transition: all 300ms ease;/* float: left; */}
+#carousel .prod_detail .actions .add-to-links li a.link-compare{    background: url("../../images/madstack/icon_sprite.png") no-repeat;    border-radius:  50%;    background-position: -28px -462px;    background-color: rgba(0,0,0,0.6);    text-indent: -9999px;    width: 30px;    height: 30px;}
+#carousel .prod_detail .actions .link-cart{    background: url("../../images/madstack/icon_sprite.png") no-repeat;    border-radius: 50%;    background- position: -28px -407px;    background-color:  rgba(0,0,0,0.6);    text-indent: -9999px;    width: 30px;    height: 30px;background-position: -28px -407px; padding:0; margin-left:0px;}
+#carousel .prod_detail .actions .add-to-links li a {margin-right: 7px !important; padding:0 !important; margin-left:0 !important; border:0;}
+#carousel .prod_detail .add-to-links a {border-right:none !important;}
+#carousel .prod_detail .actions .add-to-links li a.link-wishlist{ background: url("../../images/madstack/icon_sprite.png") no-repeat;    border-radius:  50%; background-position: -28px -435px; background-color:  rgba(0,0,0,0.6); text-indent: -9999px; width: 30px; height: 30px;}
+#carousel .prod_detail .product-image{border:0px;width:100%}
+#carousel .prod_detail .product-name{display: inline-block;margin: 0;padding-bottom: 10px;font-size: 15px;text-transform:none;}
+#carousel .prod_detail .product-details {padding-bottom:10px;font-size:12px;width: 100%;}
+#carousel .prod_detail .product-details .original_price{text-decoration: line-through;padding-bottom:5px;/* padding: 0 10px; */}
+#carousel .prod_detail .product-details .offer_price{font-weight:bold;color:#222;padding-bottom:5px;}
+#carousel .prod_detail .product-details .discount_label{font-weight:bold;display: none;}
+#carousel .prod_detail .product-details .discount_price{font-weight:bold;color:#6fba54;}
+#carousel a.next:before, #carousel a.next:after, #carousel a.previous:before, #carousel a.previous:after {display:none;}
+
+h3.product-name a {
+    background: none !important;
+    font-size:13px !important;
+    clear:both;
+}
+
+.prod_detail button.button span {border: 0px !important;  background: none !important;}
+
+.prod_detail {
+    float: left;
+}
+
+.product-details {
+}
+
+.actions {
+    /* float: left; */
+    /* clear: both; */
+}
+.product-name a {
+    line-height: 34px !important;
+    float: left;
+}
+.prod_detail .product-view .add-to-links {margin-right: 0px !important;}
+.carousel .inner { display: table;clear: both;}
+
+#carousel .prod_detail:first-child {
+    /* margin-left: 23px; */
+}
+
+#carousel .prev, #carousel .next { position: relative;  width: 40px;  height: 40px; font-size: 50px; z-index: 9; left: -2px; text-decoration: none; background-color: rgba(0,0,0,0.5); border-radius: 50%; text-align: center; line-height: 30px; color: #fff; background-color: #333\9;  top: 186px !important; padding: 0 !important;}
+#carousel .prod_detail a.next:before, #carousel .prod_detail a.next:after, #carousel .prod_detail a.previous:before, #carousel .prod_detail a.previous:after {display:none;}
+
+#carousel .prod_detail .product-details span {
+    margin: 0 7px;
+}
+
+.product-view .add-to-links li {
+    clear: none !important; 
+}
+/* Carousel Slider Media Query CSS */
+
+/*IPAD view*/
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){
+	#carousel .prod_detail{width: 222px;}
+	#carousel .inner img{max-width: 100%;}
+	#carousel .carousel-control.next{top:186px !important;}
+	#carousel .carousel-control.prev{top:186px !important;}
+	#carousel h3.product-name a{font-size:13px;}
+	#carousel .prod_detail .product-details span {margin:0 3px;font-size: 11px;}
+	h3.product-name a {font-size:12px !important;}
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
+	#carousel .prod_detail{width: 226px;}
+	#carousel .inner img{max-width: 100%;}
+	#carousel .carousel-control.next{top:186px !important;}
+	#carousel .carousel-control.prev{top:186px !important;}
+	#carousel .prod_detail .product-details span {margin:0 3px;font-size: 11px;}
+	h3.product-name a {font-size:12px !important;}
+
+}
+/*ENDS HERE*/
+
+/*IPone 6 */
+@media only screen and (min-width: 360px) and (max-width: 640px) and (orientation: portrait){
+	#carousel .prod_detail{width: 280px;margin-left: 27px;text-align: center;}
+	#carousel .inner img{max-width: 100%;}
+	#carousel .carousel-control.next{top:186px;}
+	#carousel .carousel-control.prev{top:186px;}
+	#carousel h3.product-name a{font-size: 11px !important;}
+	#carousel {width: 89%; margin-top: 15px;  margin: 0 auto;}
+	#carousel .middle {width:300px;}
+	.title-relatedproducts {top:0 !important;}
+}
+
+@media only screen and (min-width: 360px) and (max-width: 667px) and (orientation: landscape) {
+	#carousel .prod_detail{width: 240px;margin-left: 27px;text-align: center;}
+	#carousel .inner img{max-width: 100%;}
+	#carousel .carousel-control.next{top:px;}
+	#carousel .carousel-control.prev{top:186px;}
+	#carousel h3.product-name a{font-size: 12px !important;}
+	#carousel {width: 89%; margin-top: 15px;  margin: 0 auto;}
+	#carousel .prod_detail .product-details span {margin:0 3px;font-size: 11px;}
+	#carousel .middle {width:300px;}
+	.title-relatedproducts {top:0 !important;}
+}
+/*ENDS HERE*/
+
+/*IPone 6 Plus*/
+@media only screen and (min-width: 414px) and (max-width: 736px) and (orientation: portrait){
+	#carousel .prod_detail{width: 270px; text-align: center;}
+	#carousel .inner img{max-width: 100%;}
+	#carousel .carousel-control.next{top:186px;}
+	#carousel .carousel-control.prev{top:186px;}
+	#carousel h3.product-name a{font-size: 11px !important;}
+	#carousel {width: 89%; margin-top: 15px;  margin: 0 auto;}
+	#carousel .middle {width:300px;}
+	.title-relatedproducts {top:0 !important;}
+}
+
+@media only screen and (min-width: 414px) and (max-width: 736px) and (orientation: landscape) {
+	#carousel .prod_detail{width: 240px;margin-left: 27px;text-align: center;}
+	#carousel .inner img{max-width: 100%;}
+	#carousel .carousel-control.next{top:px;}
+	#carousel .carousel-control.prev{top:186px;}
+	#carousel h3.product-name a{font-size: 12px !important;}
+	#carousel {width: 89%; margin-top: 15px;  margin: 0 auto;}
+	#carousel .prod_detail .product-details span {margin:0 3px;font-size: 11px;}
+    #carousel .middle {width:500px;}
+    .title-relatedproducts {top:0 !important;}
+}
+/*ENDS HERE*/
+
+/*IPhone 5 & 5s */
+@media only screen and (min-width: 320px) and (max-width: 568px) and (orientation: landscape){
+	#carousel .prod_detail{width: 210px; text-align:center;}	
+	#carousel .inner img{max-width: 100%;}
+	#carousel h3.product-name a{font-size:11px !important;}
+	#carousel .carousel-control.next{top:186px !important;}
+	#carousel .carousel-control.prev{top:186px !important;}
+    #carousel {width: 100%; margin-top: 15px;  margin: 0 auto;}
+	#carousel .prod_detail .product-details span {margin:0 2px;font-size: 10px;}
+	#carousel h3.product-name a{line-height:20px !important}
+	.title-relatedproducts {top:0 !important;}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 568px) and (orientation: portrait){
+	#carousel .prod_detail{width: 280px; text-align:center;}	
+	#carousel .inner img{max-width: 100%;}
+	#carousel h3.product-name a{font-size:13px !important;}
+	#carousel .carousel-control.next{top:186px !important;}
+	#carousel .carousel-control.prev{top:186px !important;}
+    #carousel {width: 100%; margin-top: 15px;  margin: 0 auto;}
+	#carousel .prod_detail .product-details span {margin:0 2px;font-size: 12px;}
+	.title-relatedproducts {top:0 !important;}
+}
+/* ENDS HERE */
+
+/*IPhone 4 & 4s */
+@media only screen and (min-width: 320px) and (max-width: 480px){
+	#carousel .carousel-control.next{right:0;}
+	#carousel .carousel-control.prev{left:0;}
+	#carousel .middle {width:280px;}
+	.title-relatedproducts {top:0 !important;}
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: landscape){
+	#carousel .prod_detail{width: 193px; margin-left: 13px;}	
+	#carousel .inner img{max-width: 100%;}
+	#carousel h3.product-name a{font-size: 11px !important;}
+	#carousel .carousel-control.next{top:186px !important;}
+	#carousel .carousel-control.prev{top:186px !important;}
+	#carousel .prod_detail .product-details span {margin: 0 1px;font-size: 10px;}
+	#carousel .middle {width:400px;}
+	.title-relatedproducts {top:0 !important;}
+}
+/*ENDS HERE*/	

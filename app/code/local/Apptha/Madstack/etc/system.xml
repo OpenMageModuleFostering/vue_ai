@@ -1,0 +1,107 @@
+<?xml version="1.0"?>   
+<!--
+/**
+* Apptha
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the EULA
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://www.apptha.com/LICENSE.txt
+*
+* ==============================================================
+*                 MAGENTO EDITION USAGE NOTICE
+* ==============================================================
+* This package designed for Magento COMMUNITY edition
+* Apptha does not guarantee correct work of this extension
+* on any other Magento edition except Magento COMMUNITY edition.
+* Apptha does not provide extension support in case of
+* incorrect edition usage.
+* ==============================================================
+*
+* @category    Apptha
+* @package     Apptha_Madstack
+* @version     0.1.0
+* @author      Apptha Team <developers@contus.in>
+* @copyright   Copyright (c) 2014 Apptha. (http://www.apptha.com)
+* @license     http://www.apptha.com/LICENSE.txt
+* 
+*/
+-->
+<config>
+	<tabs>
+        <Apptha translate="label" module="madstack">
+            <label>Apptha</label>
+            <sort_order>100</sort_order>
+        </Apptha>
+    </tabs>
+    <sections>
+    	<madstack translate="label" module="madstack">
+            <label>Madstack</label>
+            <sort_order>130</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <tab>Apptha</tab>
+            <groups>
+                <madstack translate="label">
+                    <label>General Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<activate translate="label">
+                            <label>Activate Madstack</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </activate> 
+	                    <api_url translate="label">
+	                    	<label>API call URL</label>
+	                        <frontend_type>text</frontend_type>
+	                        <sort_order>2</sort_order>
+	                        <show_in_default>1</show_in_default>
+                            <depends><enabled>0</enabled></depends>
+	                    </api_url>
+	                    <log_url translate="label">
+                            <label>Log URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <depends><enabled>0</enabled></depends>
+                        </log_url>
+                        <count_result translate="label">
+                            <label>Number of result(Carousel)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <validate>required-entry</validate>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </count_result>
+                        <installation_config translate="label">
+                            <label>Status</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <depends><enabled>0</enabled></depends>
+                        </installation_config> 
+                        <product_log_url_status translate="label">
+                            <label>Product log status</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <depends><enabled>0</enabled></depends>
+                        </product_log_url_status>   
+                    </fields>
+               </madstack>
+           </groups>
+        </madstack>
+    </sections>
+</config>

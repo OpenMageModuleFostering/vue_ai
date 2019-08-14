@@ -1,0 +1,4 @@
+#carousel .prod_detail .actions .add-to-links li a.link-wishlist,#carousel .prod_detail .actions .add-to-links li a.link-compare,#carousel .prod_detail .actions .link-cart{
+	    background-color:#000;
+	    -ms-border-radius: 50%;
+}
