@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/vue_ai",
+    "name": "OpenMageModuleFostering\/vue_ai",
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
     "description": "vue.ai delivers fashion product recommendations based on visual similarity",
     "authors": [
-    {
-        "name": "apptha",
-        "email": "info@apptha.com"
-    }
-],
+        {
+            "name": "apptha",
+            "email": "info@apptha.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
